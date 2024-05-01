@@ -92,3 +92,28 @@ echo "Hello from the container!" > /my-data/hello.txt
 cat my-data/hello.txt
 exit
 ```
+
+```bash
+# Create a container that can access the Docker Linux VM
+# Pinning to the image hash ensures it is this SPECIFIC image and not an updated one helps minimize the potential of a supply chain attack
+docker run -it --rm --privileged --pid=host justincormack/nsenter1@sha256:5af0be5e42ebd55eea2c593e4622f810065c3f45bb805eaacf43f08f3d06ffd8
+
+# Navigate to the volume inside the VM at:
+ls /var/lib/docker/volumes/my-volume/_data
+cat /var/lib/docker/volumes/my-volume/_data/hello.txt # Woohoo! we found our data!
+```
+
+```bash
+# Create a container that mounts a directory from the host filesystem into the container
+docker run  -it --rm --mount type=bind,source="${PWD}"/my-data,destination=/my-data ubuntu:22.04
+# Again, there is a similar (but shorter) syntax using -v which accomplishes the same
+docker run  -it --rm -v ${PWD}/my-data:/my-data ubuntu:22.04
+
+echo "Hello from the container!" > /my-data/hello.txt
+
+# You should also be able to see the hello.txt file on your host system
+cat my-data/hello.txt
+exit
+```
+
+TBC from 1:20:52
