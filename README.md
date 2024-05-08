@@ -13,7 +13,7 @@
 
 6. [Streams in Node.js]()
 
-7. [Child process in Node.js]() 
+7. [Child process in Node.js](./7-child-process.md) 
 
 8. [FS module]()
 

@@ -14,6 +14,7 @@ https://www.linkedin.com/pulse/ultimate-guide-nodejs-performance-feat-clustering
 
 https://blog.appsignal.com/2021/02/03/improving-node-application-performance-with-clustering.html
 
+https://www.scaler.com/topics/nodejs/clustering-in-nodejs/
 
 ### To start a cluster in PM2, what we'll do is run the following command:
 
@@ -36,3 +37,10 @@ pm2 reload server
 ```
 
 Here notice it's ‘reload’ and not ‘restart’ to restart processes one by one, keeping at least one process running at all times. This is the best way to update servers that are already live and serving users, particularly with applications that are time-sensitive.
+
+
+### When to use Cluster Module? 
+
+- high availability of services
+- little to no downtime
+- basic scalability based on demand
