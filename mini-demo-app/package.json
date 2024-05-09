@@ -9,7 +9,9 @@
     "workers-basic": "node workers/index.js",
     "workers-advanced": "node workers/index-four-workers.js",
     "clusters-basic": "node clusters/index.js",
-    "clusters-advanced": "node clusters/primary.js"
+    "clusters-advanced": "node clusters/primary.js",
+    "child-basic": "node child-process/index.js",
+    "child-fork": "npx nodemon child-process/server.js"
   },
   "keywords": [],
   "author": "",
